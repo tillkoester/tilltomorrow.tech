@@ -843,6 +843,14 @@
        SECTION 06 — APPLY
     ══════════════════════════════════════════════════════════ */
     #signup { overflow: hidden; }
+    #signup::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, var(--canvas-1), transparent);
+      z-index: 1;
+      pointer-events: none;
+    }
 
     .signup-orbs {
       position: absolute; inset: 0;
