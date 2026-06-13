@@ -842,15 +842,7 @@
     /* ══════════════════════════════════════════════════════════
        SECTION 06 — APPLY
     ══════════════════════════════════════════════════════════ */
-    #signup { overflow: hidden; }
-    #signup::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 120px;
-      background: linear-gradient(to bottom, var(--canvas-1), transparent);
-      z-index: 1;
-      pointer-events: none;
-    }
+    #signup { overflow: visible; }
 
     .signup-orbs {
       position: absolute; inset: 0;
@@ -862,24 +854,24 @@
       mix-blend-mode: multiply;
     }
     .so-1 {
-      width: 560px; height: 560px;
+      width: 600px; height: 600px;
       background: radial-gradient(ellipse at center, var(--iris-violet) 0%, transparent 68%);
-      filter: blur(80px); opacity: .32;
-      top: -160px; right: -80px;
+      filter: blur(90px); opacity: .28;
+      top: -280px; right: -80px;
       animation: floatB 68s ease-in-out infinite;
     }
     .so-2 {
-      width: 480px; height: 480px;
+      width: 520px; height: 520px;
       background: radial-gradient(ellipse at center, var(--iris-cyan) 0%, transparent 68%);
-      filter: blur(90px); opacity: .28;
+      filter: blur(100px); opacity: .22;
       bottom: -120px; left: -100px;
       animation: floatC 82s ease-in-out infinite;
     }
     .so-3 {
-      width: 360px; height: 360px;
+      width: 400px; height: 400px;
       background: radial-gradient(ellipse at center, var(--iris-pink) 0%, transparent 68%);
-      filter: blur(70px); opacity: .24;
-      top: 30%; left: 30%;
+      filter: blur(80px); opacity: .20;
+      top: 20%; left: 25%;
       animation: floatA 75s ease-in-out infinite;
     }
 
