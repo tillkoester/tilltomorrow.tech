@@ -222,11 +222,8 @@
     /* ══════════════════════════════════════════════════════════
        REVEAL
     ══════════════════════════════════════════════════════════ */
-    .r {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .6s ease-out, transform .6s ease-out;
-    }
+    .r { transition: opacity .6s ease-out, transform .6s ease-out; }
+    .r.will-reveal { opacity: 0; transform: translateY(16px); }
     .r.in { opacity: 1; transform: none; }
 
     /* ══════════════════════════════════════════════════════════
@@ -1029,7 +1026,7 @@
       }
       .glass-card:hover, .price-card:hover,
       .till-portrait-outer:hover { transform: none; }
-      .r { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .r { transition: none !important; }
     }
   </style>
 </head>
@@ -1419,19 +1416,19 @@
       hamBtn.setAttribute('aria-expanded', false);
     }));
 
-    // Scroll reveal
+    // Scroll reveal — hide via JS so content is visible without JS/in headless renders
     const reveals = document.querySelectorAll('.r');
-    if ('IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      reveals.forEach(el => el.classList.add('will-reveal'));
       const io = new IntersectionObserver(entries => {
         entries.forEach(e => {
           if (!e.isIntersecting) return;
+          e.target.classList.remove('will-reveal');
           e.target.classList.add('in');
           io.unobserve(e.target);
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' });
       reveals.forEach(el => io.observe(el));
-    } else {
-      reveals.forEach(el => el.classList.add('in'));
     }
 
     // Language switcher
