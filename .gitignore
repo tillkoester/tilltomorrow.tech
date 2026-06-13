@@ -1,0 +1,15 @@
+# Screenshots / working assets
+*.png
+*.jpg
+*.jpeg
+
+# Task / brief docs (working files, not shipped)
+v13-sonnet-brief.md
+workshop-build-v12-task.md
+workshop-build-v13-task.md
+
+# Impeccable skill runtime (not source)
+.impeccable/
+
+# Claude Code internals
+.claude/
