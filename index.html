@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%237C6BFF'/%3E%3Cstop offset='28%25' stop-color='%235B8DEF'/%3E%3Cstop offset='52%25' stop-color='%237FD8E0'/%3E%3Cstop offset='78%25' stop-color='%23F7A8C9'/%3E%3Cstop offset='100%25' stop-color='%23FFC9A8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 
   <style>
     /* ══════════════════════════════════════════════════════════
@@ -19,7 +19,7 @@
 
       --ink-1: #1A1820;
       --ink-2: #403A4A;
-      --ink-3: #7A7286;
+      --ink-3: #6A6278;
 
       --iris-violet:  #7C6BFF;
       --iris-blue:    #5B8DEF;
@@ -47,7 +47,7 @@
       --r-card: 20px;
       --r-pill: 999px;
 
-      --f-display: 'Fraunces', Georgia, serif;
+      --f-display: 'Spectral', Georgia, serif;
       --f-sans: 'Geist', 'Inter', system-ui, sans-serif;
       --f-mono: 'JetBrains Mono', 'Fira Code', monospace;
     }
@@ -355,14 +355,13 @@
     }
 
     .hero-eyebrow {
-      display: inline-flex; align-items: center;
-      font-family: var(--f-mono); font-size: var(--t-mono);
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--ink-2);
-      background: rgba(124,107,255,.07);
-      border: 1px solid rgba(124,107,255,.18);
-      padding: 7px 14px; border-radius: var(--r-pill);
-      margin-bottom: 32px;
+      display: block;
+      font-family: var(--f-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: var(--t-base);
+      color: var(--ink-3);
+      margin-bottom: 20px;
       opacity: 0;
       animation: fadeUp .6s ease-out .15s forwards;
     }
@@ -537,6 +536,9 @@
       border-color: rgba(124,107,255,.26);
     }
 
+    .glass-card.no-hover { cursor: default; }
+    .glass-card.no-hover:hover { transform: none; box-shadow: 0 8px 32px rgba(64,58,74,.06), 0 1px 0 rgba(255,255,255,.6) inset; border-color: rgba(124,107,255,.12); }
+
     .card-title {
       font-family: var(--f-display); font-weight: 500;
       font-size: var(--t-lg); color: var(--ink-1);
@@ -564,11 +566,23 @@
       margin-top: 48px;
     }
 
-    .version-card { }
+    .version-card.v-bad {
+      background: rgba(122,114,134,.06);
+      border-color: rgba(122,114,134,.22);
+    }
+    .version-card.v-bad:hover {
+      border-color: rgba(122,114,134,.35);
+      box-shadow: 0 8px 32px rgba(64,58,74,.06), 0 1px 0 rgba(255,255,255,.6) inset;
+    }
 
     .version-card.v-good {
-      border-color: rgba(124,107,255,.3);
-      box-shadow: 0 8px 32px rgba(124,107,255,.08), 0 1px 0 rgba(255,255,255,.6) inset;
+      background: rgba(124,107,255,.05);
+      border-color: rgba(124,107,255,.32);
+      box-shadow: 0 8px 32px rgba(124,107,255,.1), 0 1px 0 rgba(255,255,255,.7) inset;
+    }
+    .version-card.v-good:hover {
+      box-shadow: 0 18px 50px rgba(124,107,255,.14), 0 1px 0 rgba(255,255,255,.8) inset;
+      border-color: rgba(124,107,255,.45);
     }
 
     .version-label {
@@ -577,12 +591,10 @@
       margin-bottom: 16px;
     }
     .version-label.bad  { color: var(--ink-3); }
-    .version-label.good { color: var(--iris-violet); }
-
-    .version-card h3 {
-      font-family: var(--f-display); font-weight: 400;
-      font-size: var(--t-md); color: var(--ink-1);
-      margin-bottom: 12px; line-height: 1.3;
+    .version-label.good {
+      background: var(--iris-grad-h);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .version-card p {
@@ -619,12 +631,12 @@
     }
 
     .testimonial-support {
-      margin-top: 32px;
-      font-size: var(--t-sm); color: var(--ink-2);
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(122,114,134,.2);
+      font-size: var(--t-sm); color: var(--ink-3);
       line-height: 1.65;
-      padding-left: 20px;
-      border-left: 2px solid;
-      border-image: linear-gradient(180deg, var(--iris-violet), var(--iris-pink)) 1;
+      font-style: italic;
     }
 
     /* ══════════════════════════════════════════════════════════
@@ -646,19 +658,39 @@
       margin: 48px 0 24px;
     }
 
-    .features-grid {
+    .features-list { margin-top: 48px; }
+
+    .feature-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(122,114,134,.15);
+      align-items: start;
+    }
+    .feature-row:first-child { border-top: 1px solid rgba(122,114,134,.15); }
+
+    .feature-num {
+      font-family: var(--f-mono); font-size: var(--t-mono);
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-3);
+      display: block; margin-bottom: 10px;
     }
 
-    .feature-card-title {
+    .feature-row-title {
       font-family: var(--f-display); font-weight: 500;
       font-size: var(--t-md); color: var(--ink-1);
-      margin-bottom: 10px; line-height: 1.25;
+      line-height: 1.25;
     }
 
-    .feature-card-body { font-size: var(--t-sm); color: var(--ink-2); line-height: 1.65; }
+    .feature-row-body {
+      font-size: var(--t-base); color: var(--ink-2); line-height: 1.7;
+      max-width: 560px;
+    }
+
+    @media (max-width: 768px) {
+      .feature-row { grid-template-columns: 1fr; gap: 10px; }
+    }
 
     .layer-2-block {
       margin-top: 56px;
@@ -723,13 +755,26 @@
     }
 
     .pull-q {
-      border-left: 3px solid;
-      border-image: linear-gradient(180deg,var(--iris-violet),var(--iris-pink)) 1;
-      padding-left: 28px; margin: 36px 0;
+      margin: 40px 0;
+      padding: 32px 0;
+      border-top: 1px solid rgba(124,107,255,.18);
+      border-bottom: 1px solid rgba(124,107,255,.18);
       font-family: var(--f-display); font-style: italic;
-      font-weight: 300; font-size: clamp(1.5rem, 2.6vw, 1.75rem);
-      line-height: 1.4; letter-spacing: -.01em;
+      font-weight: 300; font-size: clamp(1.4rem, 2.4vw, 1.7rem);
+      line-height: 1.5; letter-spacing: -.01em;
       color: var(--ink-1);
+      position: relative;
+    }
+    .pull-q::before {
+      content: '\201C';
+      display: block;
+      font-family: var(--f-display);
+      font-size: 3.5rem;
+      line-height: 0.7;
+      color: var(--iris-violet);
+      opacity: .22;
+      margin-bottom: 10px;
+      user-select: none;
     }
 
     .honest-line {
@@ -1023,7 +1068,7 @@
       <ul class="nav-links-desktop" role="list">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="/agent-workshop">Workshop ↗</a></li>
+        <li><a href="/agent-workshop" target="_blank" rel="noopener">Workshop ↗</a></li>
       </ul>
 
       <button class="hamburger" id="ham-btn" aria-label="Open menu" aria-expanded="false">
@@ -1037,7 +1082,7 @@
   <nav class="mob-nav" id="mob-nav" aria-label="Mobile menu">
     <a href="#services">Services</a>
     <a href="#about">About</a>
-    <a href="/agent-workshop">Workshop ↗</a>
+    <a href="/agent-workshop" target="_blank" rel="noopener">Workshop ↗</a>
     <a class="btn-p" href="#contact" style="text-align:center"><span>Let's talk</span></a>
   </nav>
 
@@ -1081,7 +1126,7 @@
   <section class="sec" id="moment" aria-labelledby="moment-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">Here's what's actually at stake</span>
+        <span class="label-mono">01 / Here's what's actually at stake</span>
         <h2 class="sec-head" id="moment-h" style="margin-top:12px">Someone's Already Been Given<br>Your Name. They're About to<br><span class="rainbow-word">Look You Up.</span></h2>
       </div>
 
@@ -1109,12 +1154,12 @@
   <section class="sec" id="proof" aria-labelledby="proof-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">It doesn't have to stay that way</span>
+        <span class="label-mono">02 / It doesn't have to stay that way</span>
         <h2 class="sec-head" id="proof-h" style="margin-top:12px">"People Keep Asking<br>Who Built Her Page."</h2>
       </div>
 
       <div class="testimonial-wrap">
-        <div class="glass-card r" style="transition-delay:80ms">
+        <div class="glass-card no-hover r" style="transition-delay:80ms">
           <p class="testimonial-q">"Before Till, I had nothing I was willing to share. Now colleagues — other therapists — reach out to ask who built it. What surprised me most was how quickly it felt like mine."</p>
           <p class="testimonial-attr">[Name], Therapist, Berlin</p>
         </div>
@@ -1127,26 +1172,35 @@
   <section class="sec" id="services" aria-labelledby="services-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">What working together produces</span>
-        <h2 class="sec-head" id="services-h" style="margin-top:12px">Not a Template With Your Name On It.<br><span class="rainbow-word">Something That Actually Represents You.</span></h2>
+        <span class="label-mono">03 / What working together produces</span>
+        <h2 class="sec-head" id="services-h" style="margin-top:12px">Not a Template With Your Name On It.<br><em style="font-style:italic;font-weight:300">Something That Actually Represents You.</em></h2>
       </div>
 
       <p class="services-intro r" style="transition-delay:60ms">Every project starts the same way: I learn your work. What you do, who it's for, how you actually run things day to day. Then I build something that reflects all of it — and connects to the rest of your business.</p>
 
       <div class="layer-tag r" style="transition-delay:80ms">Layer 1 — Your presence</div>
 
-      <div class="features-grid">
-        <div class="glass-card r" style="transition-delay:80ms">
-          <h3 class="feature-card-title">Your identity, finally online</h3>
-          <p class="feature-card-body">Calm. Modern. Specific to you. Not a generic starting point with your colours swapped in — something your clients and colleagues recognise as unmistakably yours.</p>
+      <div class="features-list">
+        <div class="feature-row r" style="transition-delay:80ms">
+          <div>
+            <span class="feature-num">01</span>
+            <h3 class="feature-row-title">Your identity, finally online</h3>
+          </div>
+          <p class="feature-row-body">Calm. Modern. Specific to you. Not a generic starting point with your colours swapped in — something your clients and colleagues recognise as unmistakably yours.</p>
         </div>
-        <div class="glass-card r" style="transition-delay:140ms">
-          <h3 class="feature-card-title">Inquiry built in</h3>
-          <p class="feature-card-body">Waitlist, booking, contact — handled through a proper flow. Clients reach you with the right information already provided. Your personal email stops being your intake system.</p>
+        <div class="feature-row r" style="transition-delay:140ms">
+          <div>
+            <span class="feature-num">02</span>
+            <h3 class="feature-row-title">Inquiry built in</h3>
+          </div>
+          <p class="feature-row-body">Waitlist, booking, contact — handled through a proper flow. Clients reach you with the right information already provided. Your personal email stops being your intake system.</p>
         </div>
-        <div class="glass-card r" style="transition-delay:200ms">
-          <h3 class="feature-card-title">Connected to how you already work</h3>
-          <p class="feature-card-body">Linked to your calendar, your email, your socials. Not a separate island you have to maintain — an integrated part of how your practice runs.</p>
+        <div class="feature-row r" style="transition-delay:200ms">
+          <div>
+            <span class="feature-num">03</span>
+            <h3 class="feature-row-title">Connected to how you already work</h3>
+          </div>
+          <p class="feature-row-body">Linked to your calendar, your email, your socials. Not a separate island you have to maintain — an integrated part of how your practice runs.</p>
         </div>
       </div>
 
@@ -1165,10 +1219,10 @@
   </section>
 
   <!-- 04 / WHY ME -->
-  <section class="sec" id="about" aria-labelledby="about-h">
+  <section class="sec" id="about" style="padding-top:128px" aria-labelledby="about-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">Who's doing this</span>
+        <span class="label-mono">04 / Who's doing this</span>
       </div>
       <div class="till-grid" style="margin-top:40px">
 
@@ -1217,7 +1271,7 @@
   <section class="sec" id="how" aria-labelledby="how-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">Getting started</span>
+        <span class="label-mono">05 / Getting started</span>
         <h2 class="sec-head" id="how-h" style="margin-top:12px">One Conversation.<br>Then I Take It From Here.</h2>
       </div>
 
@@ -1242,74 +1296,74 @@
   </section>
 
   <!-- 06 / FAQ -->
-  <section class="sec" id="faq" aria-labelledby="faq-h">
+  <section class="sec" id="faq" style="padding-top:64px;padding-bottom:64px" aria-labelledby="faq-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">Questions</span>
+        <span class="label-mono">06 / Questions</span>
         <h2 class="sec-head-md" id="faq-h" style="margin-top:12px">A few things people ask</h2>
       </div>
 
       <ul class="faq-list r" style="transition-delay:60ms" role="list">
         <li class="faq-item">
-          <button class="faq-q" aria-expanded="false">
+          <button class="faq-q" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">
             Do I need to be technical?
             <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-a" role="region">
+          <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1">
             <div class="faq-a-inner">
               <p>No. You need to understand your work and your clients. The technical part is mine.</p>
             </div>
           </div>
         </li>
         <li class="faq-item">
-          <button class="faq-q" aria-expanded="false">
+          <button class="faq-q" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">
             How much of my time does this take?
             <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-a" role="region">
+          <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2">
             <div class="faq-a-inner">
               <p>A real conversation at the start. A few check-ins at key moments. Beyond that, you'll hear from me when there's something to look at or decide — not constantly.</p>
             </div>
           </div>
         </li>
         <li class="faq-item">
-          <button class="faq-q" aria-expanded="false">
+          <button class="faq-q" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">
             Is it really mine when it's done?
             <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-a" role="region">
+          <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3">
             <div class="faq-a-inner">
               <p>Completely. You own everything. No platform lock-in, no ongoing dependency on me. If you want to hand it to someone else in two years, you can.</p>
             </div>
           </div>
         </li>
         <li class="faq-item">
-          <button class="faq-q" aria-expanded="false">
+          <button class="faq-q" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">
             What if I want changes after launch?
             <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-a" role="region">
+          <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4">
             <div class="faq-a-inner">
               <p>We'll talk. Small things are usually quick. Bigger ones, we scope together.</p>
             </div>
           </div>
         </li>
         <li class="faq-item">
-          <button class="faq-q" aria-expanded="false">
+          <button class="faq-q" id="faq-q-5" aria-expanded="false" aria-controls="faq-a-5">
             Can you also do the automation work, or only the presence?
             <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-a" role="region">
+          <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5">
             <div class="faq-a-inner">
               <p>Both. The presence is where we start — it's the foundation everything else connects to. The systems layer is there when you're ready for it.</p>
             </div>
@@ -1365,7 +1419,7 @@
         <nav class="footer-links" aria-label="Footer links">
           <a href="#services">Services</a>
           <a href="#about">About</a>
-          <a href="/agent-workshop">Workshop ↗</a>
+          <a href="/agent-workshop" target="_blank" rel="noopener">Workshop ↗</a>
           <a href="mailto:hello@tilltomorrow.tech">Contact</a>
         </nav>
       </div>
