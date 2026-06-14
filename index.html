@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>tilltomorrow.tech — Online Presence & AI Systems for Solo Professionals</title>
   <meta name="description" content="I build the online presence and behind-the-scenes systems that take the weight off your shoulders — so you can spend your time on the work that made you start in the first place." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%237C6BFF'/%3E%3Cstop offset='28%25' stop-color='%235B8DEF'/%3E%3Cstop offset='52%25' stop-color='%237FD8E0'/%3E%3Cstop offset='78%25' stop-color='%23F7A8C9'/%3E%3Cstop offset='100%25' stop-color='%23FFC9A8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E" />
@@ -83,6 +83,8 @@
     blockquote { margin: 0; padding: 0; }
     a { color: inherit; }
     button { font-family: inherit; cursor: pointer; }
+    p { text-wrap: pretty; }
+    ::placeholder { color: var(--ink-3); opacity: 1; }
 
     /* ══════════════════════════════════════════════════════════
        BACKGROUND DRIFTS
@@ -174,12 +176,18 @@
       background-clip: text;
     }
 
-    .iris-text {
-      background: var(--iris-grad);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+    /* Skip-to-content (keyboard accessibility) */
+    .skip-link {
+      position: absolute; top: -100%; left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink-1); color: var(--canvas-1);
+      padding: 8px 20px; border-radius: 0 0 var(--r-pill) var(--r-pill);
+      font-size: var(--t-sm); font-weight: 600;
+      z-index: 9999; text-decoration: none;
+      transition: top .2s ease;
+      white-space: nowrap;
     }
+    .skip-link:focus { top: 0; outline: none; }
 
     .label-mono {
       font-family: var(--f-mono);
@@ -976,6 +984,18 @@
 
     .form-fine { font-size: var(--t-xs); color: var(--ink-3); text-align: center; }
 
+    /* Form field error state */
+    .field.error input, .field.error textarea {
+      border-color: #C23030;
+      box-shadow: 0 0 0 4px rgba(194,48,48,.1);
+    }
+    .field-error {
+      font-size: var(--t-xs); color: #C23030;
+      margin-top: 6px; display: none;
+      font-weight: 500;
+    }
+    .field.error .field-error { display: block; }
+
     /* Form success state */
     #contact-form {
       transition: opacity .3s ease, transform .35s cubic-bezier(0.22,1,0.36,1);
@@ -1152,11 +1172,21 @@
       }
       .glass-card:hover, .till-portrait-outer:hover { transform: none; }
       .r { transition: none !important; }
-      .faq-a { transition: none !important; }
+      .faq-a, .faq-a-inner { transition: none !important; }
+      .faq-a-inner { opacity: 1 !important; transform: none !important; }
+      .nav-links-desktop a::after { transition: none !important; }
+      #contact-form, .form-sent { transition: none !important; }
+      .check-circle, .check-mark {
+        transition: none !important;
+        stroke-dashoffset: 0 !important;
+      }
+      .skip-link { transition: none !important; }
     }
   </style>
 </head>
 <body>
+
+  <a class="skip-link" href="#hero">Skip to main content</a>
 
   <!-- Background drifts -->
   <div id="drifts" aria-hidden="true">
@@ -1497,13 +1527,15 @@
         </div>
         <div class="glass-card r" style="transition-delay:80ms; position:relative; min-height:320px;">
           <form id="contact-form" novalidate>
-            <div class="field">
+            <div class="field" id="field-name">
               <label for="f-name">Your name</label>
-              <input type="text" id="f-name" name="name" placeholder="Your name" autocomplete="name" required />
+              <input type="text" id="f-name" name="name" placeholder="Your name" autocomplete="name" required aria-describedby="f-name-err" />
+              <p class="field-error" id="f-name-err" role="alert">Please enter your name.</p>
             </div>
-            <div class="field">
+            <div class="field" id="field-email">
               <label for="f-email">Your email</label>
-              <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email" required />
+              <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="f-email-err" />
+              <p class="field-error" id="f-email-err" role="alert">Please enter a valid email address.</p>
             </div>
             <div class="field">
               <label for="f-what">What do you do — and what's the thing you most wish would just handle itself?</label>
@@ -1656,26 +1688,49 @@
       }
     }
 
-    // Contact form — animated success state
-    document.getElementById('contact-form').addEventListener('submit', e => {
-      e.preventDefault();
-      const name  = document.getElementById('f-name').value.trim();
-      const email = document.getElementById('f-email').value.trim();
-      if (!name || !email) {
-        if (!name) document.getElementById('f-name').focus();
-        else       document.getElementById('f-email').focus();
-        return;
-      }
+    // Contact form — inline validation + animated success state
+    (function() {
       const form = document.getElementById('contact-form');
-      const success = document.getElementById('form-sent');
-      form.classList.add('sent');
-      setTimeout(() => {
-        success.style.display = 'flex';
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => { success.classList.add('visible'); });
-        });
-      }, 320);
-    });
+      const nameInput  = document.getElementById('f-name');
+      const emailInput = document.getElementById('f-email');
+
+      function clearError(fieldId) {
+        document.getElementById(fieldId).classList.remove('error');
+      }
+      nameInput.addEventListener('input',  () => clearError('field-name'));
+      emailInput.addEventListener('input', () => clearError('field-email'));
+
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const name  = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        let hasError = false;
+
+        if (!name) {
+          document.getElementById('field-name').classList.add('error');
+          hasError = true;
+        }
+        if (!email || !emailOk) {
+          document.getElementById('field-email').classList.add('error');
+          hasError = true;
+        }
+        if (hasError) {
+          const first = form.querySelector('.field.error input');
+          if (first) first.focus();
+          return;
+        }
+
+        const success = document.getElementById('form-sent');
+        form.classList.add('sent');
+        setTimeout(() => {
+          success.style.display = 'flex';
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => { success.classList.add('visible'); });
+          });
+        }, 320);
+      });
+    })();
   </script>
 </body>
 </html>
