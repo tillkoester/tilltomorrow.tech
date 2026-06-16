@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imprint — tilltomorrow.tech</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%237C6BFF'/%3E%3Cstop offset='28%25' stop-color='%235B8DEF'/%3E%3Cstop offset='52%25' stop-color='%237FD8E0'/%3E%3Cstop offset='78%25' stop-color='%23F7A8C9'/%3E%3Cstop offset='100%25' stop-color='%23FFC9A8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --canvas-1: #FFFFFF;
+      --ink-1: #1A1820; --ink-2: #403A4A; --ink-3: #746C80;
+      --iris-grad: linear-gradient(135deg, #7C6BFF 0%, #5B8DEF 28%, #7FD8E0 52%, #F7A8C9 78%, #FFC9A8 100%);
+      --f-display: 'Fraunces', Georgia, serif;
+      --f-sans: 'Geist', 'Inter', system-ui, sans-serif;
+      --f-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--f-sans); font-size: 1.0625rem; line-height: 1.65;
+      color: var(--ink-2); background: var(--canvas-1);
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px 96px; }
+    .wm {
+      font-family: var(--f-display); font-style: italic; font-size: 1.08rem;
+      text-decoration: none; color: var(--ink-1);
+      display: inline-flex; align-items: center; margin-bottom: 56px;
+    }
+    .wm-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--iris-grad); margin: 0 1px; position: relative; top: -1px;
+    }
+    h1 {
+      font-family: var(--f-display); font-weight: 300; font-size: 2.75rem;
+      line-height: 1.1; letter-spacing: -.02em; color: var(--ink-1);
+      margin-bottom: 12px;
+    }
+    .sub {
+      font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--ink-3); margin-bottom: 48px;
+    }
+    h2 {
+      font-family: var(--f-display); font-weight: 500; font-size: 1.4rem;
+      color: var(--ink-1); margin: 40px 0 12px; letter-spacing: -.01em;
+    }
+    p { margin-bottom: 14px; }
+    .todo {
+      background: rgba(124,107,255,.06); border: 1px solid rgba(124,107,255,.2);
+      border-radius: 8px; padding: 3px 8px; font-family: var(--f-mono);
+      font-size: .85em; color: #5B4FCF;
+    }
+    a { color: #5B4FCF; }
+    .back {
+      display: inline-block; margin-top: 56px; font-weight: 500;
+      text-decoration: none; color: var(--ink-2);
+    }
+    .back:hover { color: var(--ink-1); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="wm" href="index.html">tilltomorrow<span class="wm-dot" aria-hidden="true"></span>tech</a>
+
+    <h1>Imprint</h1>
+    <p class="sub">Angaben gemäß § 5 TMG</p>
+
+    <h2>Provider</h2>
+    <p>
+      <span class="todo">[TODO: full legal name]</span><br />
+      <span class="todo">[TODO: street &amp; number]</span><br />
+      <span class="todo">[TODO: postcode]</span> Berlin<br />
+      Germany
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Email: <a href="mailto:hello@tilltomorrow.tech">hello@tilltomorrow.tech</a><br />
+      Phone: <span class="todo">[TODO: phone number, or remove if not required]</span>
+    </p>
+
+    <h2>VAT</h2>
+    <p>
+      VAT ID (USt-IdNr.) per § 27 a UStG:
+      <span class="todo">[TODO: VAT ID, or note "Kleinunternehmer gemäß § 19 UStG"]</span>
+    </p>
+
+    <h2>Responsible for content</h2>
+    <p>Per § 18 Abs. 2 MStV: <span class="todo">[TODO: name &amp; address — usually the same as above]</span></p>
+
+    <a class="back" href="index.html">← Back to the workshop</a>
+  </div>
+</body>
+</html>

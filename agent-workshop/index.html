@@ -19,7 +19,7 @@
 
       --ink-1: #1A1820;
       --ink-2: #403A4A;
-      --ink-3: #7A7286;
+      --ink-3: #746C80;
 
       --iris-violet:  #7C6BFF;
       --iris-blue:    #5B8DEF;
@@ -537,33 +537,21 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       GLASS CARD
+       CARD — flat surface is the default container. Glass (the
+       frosted backdrop-blur) is reserved for the pricing decision
+       so it reads as emphasis, not wallpaper.
     ══════════════════════════════════════════════════════════ */
-    .glass-card {
-      background: rgba(255,252,247,.55);
-      backdrop-filter: blur(20px) saturate(140%);
-      -webkit-backdrop-filter: blur(20px) saturate(140%);
-      border: 1px solid rgba(124,107,255,.12);
+    .flat-card {
+      background: var(--canvas-1);
+      border: 1px solid rgba(122,114,134,.18);
       border-radius: var(--r-card);
-      box-shadow: 0 8px 32px rgba(64,58,74,.06), 0 1px 0 rgba(255,255,255,.6) inset;
       padding: 32px;
-      position: relative; overflow: hidden;
-      transition: transform .24s, box-shadow .24s, border-color .24s;
+      position: relative;
+      transition: border-color .24s, box-shadow .24s;
     }
-    .glass-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 50px rgba(64,58,74,.11), 0 1px 0 rgba(255,255,255,.8) inset;
-      border-color: rgba(124,107,255,.26);
-    }
-
-    .card-num {
-      position: absolute; top: 18px; right: 22px;
-      font-family: var(--f-display); font-weight: 300;
-      font-size: var(--t-2xl); line-height: 1;
-      background: var(--iris-grad);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
-      opacity: .08; user-select: none; pointer-events: none;
+    .flat-card:hover {
+      border-color: rgba(124,107,255,.28);
+      box-shadow: 0 12px 36px rgba(64,58,74,.07);
     }
 
     .card-title {
@@ -625,7 +613,8 @@
     }
     .pain-icon svg { width: 20px; height: 20px; }
 
-    .pain-row-text h4 {
+    .pain-row-text h3 {
+      font-family: var(--f-sans);
       font-size: var(--t-sm);
       font-weight: 600;
       color: var(--ink-1);
@@ -639,96 +628,7 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       SECTION 02 — WALK AWAY WITH
-    ══════════════════════════════════════════════════════════ */
-    .walkaway-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 48px;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SECTION 03 — RESULTS
-    ══════════════════════════════════════════════════════════ */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 56px;
-    }
-
-    .result-item {
-      text-align: center;
-      padding: 48px 32px;
-      position: relative;
-    }
-
-    .result-item + .result-item::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 20%; bottom: 20%;
-      width: 1px;
-      background: linear-gradient(180deg, transparent, rgba(122,114,134,.2), transparent);
-    }
-
-    .result-glow {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .result-item:nth-child(1) .result-glow {
-      background: radial-gradient(ellipse 200px 160px at 50% 50%, rgba(124,107,255,.06) 0%, transparent 70%);
-    }
-    .result-item:nth-child(2) .result-glow {
-      background: radial-gradient(ellipse 200px 160px at 50% 50%, rgba(127,216,224,.06) 0%, transparent 70%);
-    }
-    .result-item:nth-child(3) .result-glow {
-      background: radial-gradient(ellipse 200px 160px at 50% 50%, rgba(247,168,201,.06) 0%, transparent 70%);
-    }
-
-    .result-num {
-      font-family: var(--f-display);
-      font-weight: 300;
-      font-size: 5rem;
-      line-height: 1;
-      letter-spacing: -.04em;
-      position: relative;
-      margin-bottom: 12px;
-    }
-
-    .result-label {
-      font-size: var(--t-sm);
-      font-weight: 600;
-      color: var(--ink-1);
-      margin-bottom: 8px;
-      position: relative;
-    }
-
-    .result-desc {
-      font-size: var(--t-xs);
-      color: var(--ink-3);
-      line-height: 1.55;
-      position: relative;
-    }
-
-    .results-note {
-      text-align: center;
-      margin-top: 36px;
-      font-size: var(--t-xs);
-      color: var(--ink-3);
-      font-style: italic;
-    }
-
-    @media (max-width: 768px) {
-      .results-grid { grid-template-columns: 1fr; gap: 0; }
-      .result-item + .result-item::before { left: 20%; right: 20%; top: 0; bottom: auto; width: auto; height: 1px; background: linear-gradient(90deg, transparent, rgba(122,114,134,.2), transparent); }
-      .result-num { font-size: 4rem; }
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SECTION 04 — PRICING
+       SECTION — PRICING
     ══════════════════════════════════════════════════════════ */
     .pricing-wrap { max-width: 680px; margin: 0 auto; }
 
@@ -990,11 +890,22 @@
     @media (max-width: 1024px) {
       :root { --gap-section: 64px; }
       .hero-grid { grid-template-columns: 1fr; padding: 80px 0 60px; }
-      .orbs-wrap { display: none; }
+      /* Orbs become an ambient backdrop behind the copy rather than vanishing.
+         Centered via inset+margin (no transform) so the reduced-motion
+         reset and the desktop-only parallax can't knock it off-center. */
+      .orbs-wrap {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        opacity: .4;
+        z-index: 0;
+        animation: none;
+        pointer-events: none;
+      }
+      .hero-grid > div:first-child { position: relative; z-index: 1; }
       .hero-hl { font-size: 3rem; }
       .problem-grid { grid-template-columns: 1fr; }
       .problem-callout { grid-column: 1; }
-      .walkaway-grid { grid-template-columns: repeat(2, 1fr); }
       .till-grid { grid-template-columns: 1fr; gap: 48px; }
       .till-portrait-outer { max-width: 280px; }
     }
@@ -1007,7 +918,7 @@
       .hamburger { display: flex; }
       .btn-p { padding: 9px 18px; font-size: var(--t-sm); }
       .footer-top { flex-direction: column; align-items: flex-start; }
-      .walkaway-grid { grid-template-columns: 1fr; }
+      .leave-grid { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
     }
 
@@ -1015,7 +926,6 @@
       .hero-hl { font-size: 2.2rem; }
       .hero-grid { padding: 60px 0 48px; }
       .wrap { padding: 0 16px; }
-      .stat-num { font-size: 4rem; }
     }
 
     /* ══════════════════════════════════════════════════════════
@@ -1030,7 +940,7 @@
       .hl-line, .date-chip, .hero-sub, .hero-actions, .orbs-wrap {
         animation: none !important; opacity: 1; transform: none;
       }
-      .glass-card:hover, .price-card:hover,
+      .flat-card:hover, .price-card:hover,
       .till-portrait-outer:hover { transform: none; }
       .r { transition: none !important; }
     }
@@ -1038,11 +948,6 @@
     /* ══════════════════════════════════════════════════════════
        SECTION — PROOF
     ══════════════════════════════════════════════════════════ */
-    .proof-body { max-width: 680px; margin-top: 28px; }
-    .proof-body p {
-      font-size: var(--t-base); color: var(--ink-2);
-      line-height: 1.7; margin-bottom: 20px;
-    }
     .proof-note {
       margin-top: 32px; font-size: var(--t-xs);
       color: var(--ink-3); font-style: italic;
@@ -1052,7 +957,7 @@
        SECTION — WHAT YOU LEAVE WITH (2×2 grid)
     ══════════════════════════════════════════════════════════ */
     .leave-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
+      display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 24px; margin-top: 48px;
     }
     .leave-subtitle {
@@ -1079,11 +984,6 @@
     /* ══════════════════════════════════════════════════════════
        SECTION — FORMAT
     ══════════════════════════════════════════════════════════ */
-    .session-num {
-      font-family: var(--f-mono); font-size: var(--t-mono);
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--iris-violet); margin-bottom: 10px;
-    }
     .format-meta {
       text-align: center; margin-top: 32px;
       font-size: var(--t-sm); color: var(--ink-3);
@@ -1104,10 +1004,6 @@
     }
     .faq-a { font-size: var(--t-sm); color: var(--ink-2); line-height: 1.65; }
 
-    @media (max-width: 768px) {
-      .leave-grid { grid-template-columns: 1fr; }
-    }
-
     /* ══════════════════════════════════════════════════════════
        PROOF — CENTERED LAYOUT
     ══════════════════════════════════════════════════════════ */
@@ -1115,11 +1011,14 @@
 
     .proof-context {
       font-family: var(--f-display);
-      font-size: var(--t-md);
+      font-size: var(--t-lg);
       font-weight: 400;
       font-style: italic;
-      color: var(--ink-3);
+      line-height: 1.25;
+      letter-spacing: -.01em;
+      color: var(--ink-1);
       margin-bottom: 32px;
+      text-wrap: balance;
     }
 
     .proof-paras p {
@@ -1290,7 +1189,7 @@
           </blockquote>
         </div>
 
-        <div class="glass-card r" style="transition-delay:100ms">
+        <div class="flat-card r" style="transition-delay:100ms">
           <div class="pain-row">
             <div class="pain-icon" aria-hidden="true">
               <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1298,7 +1197,7 @@
               </svg>
             </div>
             <div class="pain-row-text">
-              <h4>A system that forgets you</h4>
+              <h3>A system that forgets you</h3>
               <p>Every session starts from scratch. No memory of your voice, your clients, your way of working. AI that resets daily is just a fancy search box.</p>
             </div>
           </div>
@@ -1310,7 +1209,7 @@
               </svg>
             </div>
             <div class="pain-row-text">
-              <h4>Tools that don't connect</h4>
+              <h3>Tools that don't connect</h3>
               <p>Five different things that don't talk to each other. You're the integration layer — manually moving information between them all week.</p>
             </div>
           </div>
@@ -1321,7 +1220,7 @@
               </svg>
             </div>
             <div class="pain-row-text">
-              <h4>A curve you haven't had time to climb</h4>
+              <h3>A curve you haven't had time to climb</h3>
               <p>You know there's more leverage here. You just haven't had the time to figure it out properly.</p>
             </div>
           </div>
@@ -1337,7 +1236,7 @@
     <div class="wrap">
       <div class="proof-layout">
         <span class="label-mono">02 / What this actually looks like</span>
-        <p class="proof-context r" id="proof-h" style="margin-top:12px">A Second Brain. That Runs Without You.</p>
+        <h2 class="proof-context r" id="proof-h" style="margin-top:12px">A Second Brain. That Runs Without You.</h2>
         <div class="proof-paras r" style="transition-delay:40ms">
           <p>I paste something into my inbox — a contact I met, an idea, a link. It gets filed in the right place with the right context. Automatically.</p>
           <p>My calendar gets built around my actual projects. I don't decide when to work on what — my agent knows my priorities and handles it. I just do the work.</p>
@@ -1362,7 +1261,7 @@
         <p class="leave-subtitle r" style="transition-delay:40ms">Not a course. No certificate. You leave with something running.</p>
       </div>
       <div class="leave-grid">
-        <div class="glass-card r" style="transition-delay:60ms">
+        <div class="flat-card r" style="transition-delay:60ms">
           <div class="card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
@@ -1372,17 +1271,7 @@
           <h3 class="card-title">Always on</h3>
           <p class="card-body">Runs around the clock — even when your laptop is off — for the cost of a couple of coffees a month.</p>
         </div>
-        <div class="glass-card r" style="transition-delay:120ms">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <h3 class="card-title">Your biggest time-drain, handled first</h3>
-          <p class="card-body">We start with the one task eating the most hours. By the end of Session 1, it's running. Sessions 2 and 3 build the next layers.</p>
-        </div>
-        <div class="glass-card r" style="transition-delay:180ms">
+        <div class="flat-card r" style="transition-delay:120ms">
           <div class="card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M3 17l4-8 4 5 3-3 4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1391,7 +1280,7 @@
           <h3 class="card-title">Gets sharper every week</h3>
           <p class="card-body">Every task you teach it becomes a skill it keeps. It builds a model of how you work and compounds over time.</p>
         </div>
-        <div class="glass-card r" style="transition-delay:240ms">
+        <div class="flat-card r" style="transition-delay:180ms">
           <div class="card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -1589,7 +1478,7 @@
           <h2 class="form-title" id="form-h" style="margin-top:12px">Your Week Doesn't Have<br>to Look Like This Forever.</h2>
           <p class="form-sub">Tell me what's eating your time. If you're the right fit, we'll build the system that handles it.</p>
         </div>
-        <div class="glass-card r" style="transition-delay:80ms">
+        <div class="flat-card r" style="transition-delay:80ms">
           <form id="app-form" novalidate>
             <div class="field">
               <label for="f-name">Your name</label>
@@ -1620,8 +1509,8 @@
           tilltomorrow<span class="wm-dot" aria-hidden="true"></span>tech
         </a>
         <nav class="footer-links" aria-label="Footer links">
-          <a href="#imprint">Imprint</a>
-          <a href="#privacy">Privacy</a>
+          <a href="impressum.html">Imprint</a>
+          <a href="datenschutz.html">Privacy</a>
           <a href="mailto:hello@tilltomorrow.tech">Contact</a>
         </nav>
         <button class="lang-sw" aria-label="Switch language">
@@ -1695,7 +1584,11 @@
               el.style.transform = `translateY(${y * driftFactors[i]}px)`;
             });
             if (orbsWrap) {
-              orbsWrap.style.transform = `translateY(${y * 0.18}px)`;
+              if (window.innerWidth > 1024) {
+                orbsWrap.style.transform = `translateY(${y * 0.18}px)`;
+              } else if (orbsWrap.style.transform) {
+                orbsWrap.style.transform = '';
+              }
             }
             ticking = false;
           });
