@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KI-Automation Workshop — tilltomorrow.tech</title>
-  <meta name="description" content="Build your own AI agent in 3 sessions. Handle the tasks you hate. Limited to 6 seats — July 2026." />
+  <title>AI Agent Workshop — tilltomorrow.tech</title>
+  <meta name="description" content="Meet your first AI employee. In three sessions, you'll build an agent that handles the tasks eating your week. First batch July 2026 — 6 seats." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%237C6BFF'/%3E%3Cstop offset='28%25' stop-color='%235B8DEF'/%3E%3Cstop offset='52%25' stop-color='%237FD8E0'/%3E%3Cstop offset='78%25' stop-color='%23F7A8C9'/%3E%3Cstop offset='100%25' stop-color='%23FFC9A8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1028,6 +1028,79 @@
       .till-portrait-outer:hover { transform: none; }
       .r { transition: none !important; }
     }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION — PROOF
+    ══════════════════════════════════════════════════════════ */
+    .proof-body { max-width: 680px; margin-top: 28px; }
+    .proof-body p {
+      font-size: var(--t-base); color: var(--ink-2);
+      line-height: 1.7; margin-bottom: 20px;
+    }
+    .proof-note {
+      margin-top: 32px; font-size: var(--t-xs);
+      color: var(--ink-3); font-style: italic;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION — WHAT YOU LEAVE WITH (2×2 grid)
+    ══════════════════════════════════════════════════════════ */
+    .leave-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px; margin-top: 48px;
+    }
+    .leave-subtitle {
+      margin-top: 16px; font-size: var(--t-md);
+      color: var(--ink-2); font-style: italic;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION — WHY THIS WORKS
+    ══════════════════════════════════════════════════════════ */
+    .why-body { max-width: 680px; margin-top: 28px; }
+    .why-body p {
+      font-size: var(--t-base); color: var(--ink-2);
+      line-height: 1.7; margin-bottom: 20px;
+    }
+    .why-aside {
+      margin-top: 32px; padding: 24px 28px;
+      background: rgba(124,107,255,.05);
+      border: 1px solid rgba(124,107,255,.15);
+      border-radius: var(--r-card);
+      font-size: var(--t-sm); color: var(--ink-2); line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION — FORMAT
+    ══════════════════════════════════════════════════════════ */
+    .session-num {
+      font-family: var(--f-mono); font-size: var(--t-mono);
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--iris-violet); margin-bottom: 10px;
+    }
+    .format-meta {
+      text-align: center; margin-top: 32px;
+      font-size: var(--t-sm); color: var(--ink-3);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SECTION — FAQ
+    ══════════════════════════════════════════════════════════ */
+    .faq-list { max-width: 720px; margin: 48px auto 0; }
+    .faq-item {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(122,114,134,.15);
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: 600; font-size: var(--t-base);
+      color: var(--ink-1); margin-bottom: 10px; line-height: 1.4;
+    }
+    .faq-a { font-size: var(--t-sm); color: var(--ink-2); line-height: 1.65; }
+
+    @media (max-width: 768px) {
+      .leave-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -1047,12 +1120,12 @@
         tilltomorrow<span class="wm-dot" aria-hidden="true"></span>tech
       </a>
       <span class="nav-slash" aria-hidden="true">/</span>
-      <span class="nav-sub">KI-Automation Workshop</span>
+      <span class="nav-sub">Agent Workshop</span>
 
       <ul class="nav-links-desktop" role="list">
-        <li><a href="#results">What You'll Build</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#format">Format</a></li>
         <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
         <li>
           <button class="lang-sw" id="lang-btn" aria-label="Switch language">
             <span class="on">EN</span>&thinsp;/&thinsp;<span>DE</span>
@@ -1069,9 +1142,9 @@
   </nav>
 
   <nav class="mob-nav" id="mob-nav" aria-label="Mobile menu">
-    <a href="#results">What You'll Build</a>
-    <a href="#about">About</a>
+    <a href="#format">Format</a>
     <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
     <a class="btn-p" href="#signup" style="text-align:center"><span>Apply for a Spot</span></a>
   </nav>
 
@@ -1082,18 +1155,17 @@
 
         <!-- Copy -->
         <div>
-          <p class="date-chip" role="note">FIRST BATCH: JULY 2026&ensp;·&ensp;LIMITED TO 6 SEATS</p>
-          <h1 class="hero-hl" aria-label="You're Already Using ChatGPT. Now Make It Work For You.">
-            <span class="hl-line">You're Already</span>
-            <span class="hl-line">Using ChatGPT.</span>
-            <span class="hl-line">Now Make It <span class="hl-italic rainbow-word">Work For You.</span></span>
+          <p class="date-chip" role="note">FIRST BATCH · JULY 2026 · ONLINE</p>
+          <h1 class="hero-hl" aria-label="Meet Your First AI Employee.">
+            <span class="hl-line">Meet Your First</span>
+            <span class="hl-line"><span class="hl-italic rainbow-word">AI Employee.</span></span>
           </h1>
           <p class="hero-sub">
-            Build your own AI agent in one workshop. It handles the tasks you hate&nbsp;— so you can do the work that actually matters.
+            In three sessions, you'll build an agent that handles the tasks eating your week — and keeps getting better the more you work with it.
           </p>
           <div class="hero-actions">
             <a class="btn-p" href="#signup"><span>Apply for a Spot</span></a>
-            <a class="btn-s" href="#results">See What You'll Build</a>
+            <a class="btn-s" href="#leave">See What You'll Build</a>
           </div>
         </div>
 
@@ -1116,15 +1188,15 @@
     <div class="wrap">
       <div class="r">
         <span class="label-mono">01 / The Problem</span>
-        <h2 class="sec-head" id="problem-h" style="margin-top:12px">You're Using AI.<br>You're Just Not Getting <span class="rainbow-word">Results.</span></h2>
+        <h2 class="sec-head" id="problem-h" style="margin-top:12px">ChatGPT Is Open in a Tab.<br>The Admin Is Still There <span class="rainbow-word">on Friday.</span></h2>
       </div>
 
       <div class="problem-grid">
         <div class="problem-left r" style="transition-delay:60ms">
-          <p>ChatGPT is open in a tab. You ask it things. Sometimes brilliant. Sometimes not. But here's the gap: you don't have a system. You're prompting, copying, pasting, switching tools — and at the end of the week, the admin is still there. The follow-ups still need writing. The research still takes hours.</p>
-          <p><strong>That's not AI working for you. That's you working for the AI.</strong></p>
+          <p>You use AI. You get something useful back. Then you paste it into the email, fix it by hand, and close the tab.</p>
+          <p>Next week: same task. Same blank box. Starting from zero.</p>
           <blockquote class="problem-callout r" style="transition-delay:160ms">
-            While you're figuring out how to "use AI better," others are automating their inboxes, their scheduling, their research. They're freeing up 10+ hours a week. Every month you wait, the gap gets wider.
+            That's not AI working for you. That's you working for the AI.
           </blockquote>
         </div>
 
@@ -1136,8 +1208,8 @@
               </svg>
             </div>
             <div class="pain-row-text">
-              <h4>You're prompting, copying, pasting</h4>
-              <p>Switching tools every session — the admin is still there at the end of the week.</p>
+              <h4>A system that forgets you</h4>
+              <p>Every session starts from scratch. No memory of your voice, your clients, your way of working. AI that resets daily is just a fancy search box.</p>
             </div>
           </div>
           <div class="pain-row">
@@ -1148,8 +1220,8 @@
               </svg>
             </div>
             <div class="pain-row-text">
-              <h4>No system, no memory</h4>
-              <p>Every session starts from zero. AI that forgets you is just a fancy search box.</p>
+              <h4>Tools that don't connect</h4>
+              <p>Five different things that don't talk to each other. You're the integration layer — manually moving information between them all week.</p>
             </div>
           </div>
           <div class="pain-row">
@@ -1159,8 +1231,8 @@
               </svg>
             </div>
             <div class="pain-row-text">
-              <h4>The gap is widening</h4>
-              <p>Others are automating 10+ hours a week while you figure it out.</p>
+              <h4>A curve you haven't had time to climb</h4>
+              <p>You know there's more leverage here. You just haven't had the time to figure it out properly.</p>
             </div>
           </div>
         </div>
@@ -1170,105 +1242,122 @@
     </div>
   </section>
 
-  <!-- 02 / WHAT YOU'LL WALK AWAY WITH -->
-  <section class="sec" id="results" aria-labelledby="results-h">
+  <!-- 02 / THE PROOF -->
+  <section class="sec" id="proof" aria-labelledby="proof-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">02 / What You'll Walk Away With</span>
-        <h2 class="sec-head" id="results-h" style="margin-top:12px">
-          After This Workshop,<br>You'll Have an Agent That <em style="font-style:italic;font-weight:300">Actually</em> Works.
+        <span class="label-mono">02 / The Proof</span>
+        <h2 class="sec-head" id="proof-h" style="margin-top:12px">
+          A Second Brain.<br><em style="font-style:italic;font-weight:300">That Runs Without You.</em>
         </h2>
       </div>
+      <div class="proof-body r" style="transition-delay:60ms">
+        <p>I paste something into my inbox — a contact I met, an idea, a link. It gets filed in the right place with the right context. Automatically.</p>
+        <p>My calendar gets built around my actual projects. I don't decide when to work on what — my agent knows my priorities and handles it. I just do the work.</p>
+        <p>Nothing falls through the cracks. Not because I'm disciplined. Because the system is.</p>
+        <p>That's what your agent will do for you. Starting with your biggest time-drain — and building from there.</p>
+        <p class="proof-note">(Batch 1 participant results — coming after July 2026)</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="walkaway-grid">
+  <!-- 03 / WHAT YOU LEAVE WITH -->
+  <section class="sec" id="leave" aria-labelledby="leave-h">
+    <div class="wrap">
+      <div class="r">
+        <span class="label-mono">03 / What You Leave With</span>
+        <h2 class="sec-head" id="leave-h" style="margin-top:12px">
+          Three Sessions.<br>One Agent Running. <em style="font-style:italic;font-weight:300">Already Working.</em>
+        </h2>
+        <p class="leave-subtitle r" style="transition-delay:40ms">Not a course. No certificate. You leave with something running.</p>
+      </div>
+      <div class="leave-grid">
         <div class="glass-card r" style="transition-delay:60ms">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M2 9h20M8 4v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="card-num" aria-hidden="true">1</div>
-          <h3 class="card-title">It handles your inbox.</h3>
-          <p class="card-body">Summarizes incoming emails. Drafts replies in your voice. Flags what needs attention. After two weeks, it writes replies the way you would.</p>
+          <h3 class="card-title">Always on</h3>
+          <p class="card-body">Runs around the clock — even when your laptop is off — for the cost of a couple of coffees a month.</p>
         </div>
-
         <div class="glass-card r" style="transition-delay:120ms">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/>
-              <path d="m16 16 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="card-num" aria-hidden="true">2</div>
-          <h3 class="card-title">It does your research.</h3>
-          <p class="card-body">Market comparison? Competitor overview? 40-page PDF? Your agent finds it, synthesizes it, delivers a brief. In minutes, not hours.</p>
+          <h3 class="card-title">Your biggest time-drain, handled first</h3>
+          <p class="card-body">We start with the one task eating the most hours. By the end of Session 1, it's running. Sessions 2 and 3 build the next layers.</p>
         </div>
-
         <div class="glass-card r" style="transition-delay:180ms">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="card-num" aria-hidden="true">3</div>
-          <h3 class="card-title"><span class="rainbow-word">Yours.</span> Fully.</h3>
-          <p class="card-body">Your workflows. Your data. Your rules. Open-source. No monthly trap. If something better comes along, you take everything and move.</p>
+          <h3 class="card-title">Gets sharper every week</h3>
+          <p class="card-body">Every task you teach it becomes a skill it keeps. It builds a model of how you work and compounds over time.</p>
+        </div>
+        <div class="glass-card r" style="transition-delay:240ms">
+          <h3 class="card-title">Yours to keep building</h3>
+          <p class="card-body">You won't need me to maintain it. You'll know it well enough to extend it yourself.</p>
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- 03 / RESULTS -->
-  <section class="sec" aria-labelledby="proof-h">
+  <!-- 04 / WHY THIS WORKS -->
+  <section class="sec" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="r">
+        <span class="label-mono">04 / Why This Works</span>
+        <h2 class="sec-head" id="why-h" style="margin-top:12px">
+          The Tool Is Free.<br><em style="font-style:italic;font-weight:300">The Learning Curve Is Not.</em>
+        </h2>
+      </div>
+      <div class="why-body r" style="transition-delay:60ms">
+        <p>The agent we build is open-source. You could go install it right now.</p>
+        <p>Go ahead. See how it goes.</p>
+        <p>I set it up myself. It took weeks of trial, error, and rebuilding from scratch — not because the tool isn't good, but because it's powerful, there are many ways to configure it, and most documentation is written for developers.</p>
+        <p>What the workshop gives you isn't access to the tool. It's three sessions with someone who's already been through it — who knows the right setup, what works, and what wastes a week.</p>
+        <p>You get the shortcut. I paid for the long way.</p>
+        <div class="why-aside">And once it's set up: it's yours. No monthly fee. No subscription that stops when you stop paying. Your data, your rules, your agent.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 / FORMAT -->
+  <section class="sec" id="format" aria-labelledby="format-h">
     <div class="wrap">
       <div class="r" style="text-align:center">
-        <span class="label-mono">03 / Results</span>
-        <h2 class="sec-head-md" id="proof-h" style="margin-top:12px">What <span class="rainbow-word">Changes</span> When You Automate</h2>
+        <span class="label-mono">05 / Format</span>
+        <h2 class="sec-head" id="format-h" style="margin-top:12px">
+          Something Running<br><em style="font-style:italic;font-weight:300">by Session One.</em>
+        </h2>
       </div>
-
-      <div class="results-grid">
-        <div class="result-item r" style="transition-delay:60ms">
-          <div class="result-glow"></div>
-          <div class="result-num iris-text">10+</div>
-          <p class="result-label">Hours freed per week</p>
-          <p class="result-desc">Inbox management, research, scheduling — handled. You focus on the 20% that actually needs you.</p>
+      <div class="walkaway-grid" style="margin-top:48px">
+        <div class="glass-card r" style="transition-delay:60ms">
+          <p class="session-num">Session 1</p>
+          <h3 class="card-title">Your agent, live</h3>
+          <p class="card-body">We build and deploy together. By the end of this session, your agent is running and handling its first task.</p>
         </div>
-        <div class="result-item r" style="transition-delay:120ms">
-          <div class="result-glow"></div>
-          <div class="result-num" style="background:linear-gradient(135deg,#7FD8E0,#5B8DEF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">3</div>
-          <p class="result-label">Sessions to build it</p>
-          <p class="result-desc">Not a course. Not a framework. In three sessions you leave with a working agent that's already running.</p>
+        <div class="glass-card r" style="transition-delay:120ms">
+          <p class="session-num">Session 2</p>
+          <h3 class="card-title">The next layer</h3>
+          <p class="card-body">Your second biggest time-drain, automated. We pick what moves the needle most and build it together.</p>
         </div>
-        <div class="result-item r" style="transition-delay:180ms">
-          <div class="result-glow"></div>
-          <div class="result-num" style="background:linear-gradient(135deg,#F7A8C9,#FFC9A8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">6</div>
-          <p class="result-label">Seats maximum</p>
-          <p class="result-desc">Tight cohort by design. Every participant gets direct attention. No back-row lurking.</p>
+        <div class="glass-card r" style="transition-delay:180ms">
+          <p class="session-num">Session 3</p>
+          <h3 class="card-title">The compound</h3>
+          <p class="card-body">We connect the pieces and make sure you have everything you need to keep building on your own.</p>
         </div>
       </div>
-      <p class="results-note r" style="transition-delay:240ms">(Quantitative results from Batch 1 — coming July 2026)</p>
+      <p class="format-meta r" style="transition-delay:240ms">Online · ~3 hours per session · Small cohort · First batch July 2026</p>
     </div>
   </section>
 
-
-  <!-- 04 / PRICING -->
+  <!-- 06 / PRICING -->
   <section class="sec" id="pricing" aria-labelledby="pricing-h">
     <div class="wrap">
       <div class="r" style="text-align:center">
-        <span class="label-mono">04 / Pricing</span>
+        <span class="label-mono">06 / Pricing</span>
         <h2 class="sec-head-md" id="pricing-h" style="margin-top:12px">What It Costs</h2>
         <p style="margin-top:14px;font-size:var(--t-sm);color:var(--ink-3)">
-          3 sessions · ~3 hours each · Online · Max 6 people · July 2026
+          3 sessions · ~3 hours each · in Berlin · Max 6 people · July 2026
         </p>
       </div>
       <div class="pricing-wrap">
         <div class="pricing-grid r" style="transition-delay:80ms">
           <div class="price-card feat">
             <div class="price-card-top"><div class="price-tag-pill">Best Value</div></div>
-            <p class="price-label">Early Bird — First 6 seats</p>
+            <p class="price-label">Early Bird — First 3 seats</p>
             <p class="price-amt"><span class="rainbow-word">299 €</span></p>
             <p class="price-sub">Apply now to lock this in</p>
             <a class="btn-p" href="#signup" style="display:block;text-align:center;padding:12px 20px"><span>Apply for a Spot</span></a>
@@ -1286,11 +1375,11 @@
     </div>
   </section>
 
-  <!-- 05 / ABOUT ME -->
+  <!-- 07 / ABOUT ME -->
   <section class="sec" id="about" aria-labelledby="about-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">05 / About Me</span>
+        <span class="label-mono">07 / About Me</span>
       </div>
       <div class="till-grid" style="margin-top:40px">
 
@@ -1316,24 +1405,60 @@
         <div class="till-bio r" style="transition-delay:80ms">
           <h3 id="about-h">I Figured This Out the Hard Way.<br>You Don't Have To.</h3>
 
-          <p>I'm Till. Social media marketing at an agency. Online marketing manager at a travel company. Freelance projects helping people get more from their tools. Every single one taught me the same lesson: the busywork is killing you.</p>
+          <p>I'm Till. Social media at an agency. Online marketing at a travel company. Freelance projects for years. For the last five years, deep in AI — workflows, automations, agents, and what these tools actually do for a one-person business when they're set up right.</p>
 
-          <p>So I built an AI agent that handles the grind. Scheduling, research, summarizing, drafting — the things that eat hours but don't require a human.</p>
+          <p>The pattern I kept seeing: brilliant people drowning in the work <em>around</em> their work. Not bad at what they do — just spending Tuesday afternoons on things that had nothing to do with why they started.</p>
 
           <div class="pull-q">
-            "I've spent the last 3 years deep in AI and <span class="rainbow-word">automation</span> — so you don't have to start from scratch."
+            "I built an agent to handle that for myself. Spent a long time figuring out the right setup. Now I teach others to do the same — in three sessions."
           </div>
 
-          <p>Now I teach others to do the same. In 3 sessions. No fluff, no theory. You leave with something running.</p>
+          <p>I believe that if more people could spend their time on the work that fulfils them — the work that made them wake up in the morning and choose this path — something genuinely shifts. In their business. And a little bit beyond it.</p>
 
-          <p>I want to help people focus on work that actually matters. Work that has impact. Together we can change the world — a little dramatic, but I mean it.</p>
+          <p>That's why I do this.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- 06 / APPLY -->
+  <!-- 08 / FAQ -->
+  <section class="sec" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="r" style="text-align:center">
+        <span class="label-mono">08 / FAQ</span>
+        <h2 class="sec-head-md" id="faq-h" style="margin-top:12px">Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item r" style="transition-delay:40ms">
+          <p class="faq-q">Do I need to be technical?</p>
+          <p class="faq-a">You don't need to be a developer. But you should be comfortable following a setup process step by step. If you've ever installed an app or configured a tool and made it work, you'll be fine.</p>
+        </div>
+        <div class="faq-item r" style="transition-delay:80ms">
+          <p class="faq-q">What do I need before the first session?</p>
+          <p class="faq-a">A computer, an internet connection, and one task you genuinely want off your plate.</p>
+        </div>
+        <div class="faq-item r" style="transition-delay:120ms">
+          <p class="faq-q">What does it cost to keep the agent running after the workshop?</p>
+          <p class="faq-a">Around €6–10 per month. No software subscriptions, no per-seat fees, no lock-in.</p>
+        </div>
+        <div class="faq-item r" style="transition-delay:160ms">
+          <p class="faq-q">What tool are we actually building with?</p>
+          <p class="faq-a">Hermes — an open-source AI agent built by Nous Research. Currently the most-used open-source agent in the world, with persistent memory, self-improving skills, and support for any AI model you choose. It's free, and you own it completely.</p>
+        </div>
+        <div class="faq-item r" style="transition-delay:200ms">
+          <p class="faq-q">Why not just use the AI already built into my existing tools?</p>
+          <p class="faq-a">Those work for single tasks in isolation. They don't connect across your work, don't remember you, and you're tied to whoever provides them. What we build here learns how you work — across everything — and keeps getting better.</p>
+        </div>
+        <div class="faq-item r" style="transition-delay:240ms">
+          <p class="faq-q">Will I be able to maintain it myself after the workshop?</p>
+          <p class="faq-a">Yes. That's part of what the three sessions are for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 / APPLY -->
   <section class="sec" id="signup" aria-labelledby="form-h">
     <div class="signup-orbs" aria-hidden="true">
       <div class="so so-1"></div>
@@ -1343,27 +1468,27 @@
     <div class="wrap">
       <div class="form-inner">
         <div class="r">
-          <span class="label-mono">06 / Apply</span>
-          <h2 class="form-title" id="form-h" style="margin-top:12px">Apply for a Spot</h2>
-          <p class="form-sub">6 seats. First batch July 2026. I read every application.</p>
+          <span class="label-mono">09 / Apply</span>
+          <h2 class="form-title" id="form-h" style="margin-top:12px">Your Week Doesn't Have<br>to Look Like This Forever.</h2>
+          <p class="form-sub">Tell me what's eating your time. If you're the right fit, we'll build the system that handles it.</p>
         </div>
         <div class="glass-card r" style="transition-delay:80ms">
           <form id="app-form" novalidate>
             <div class="field">
-              <label for="f-name">Name</label>
+              <label for="f-name">Your name</label>
               <input type="text" id="f-name" name="name" placeholder="Your name" autocomplete="name" required />
             </div>
             <div class="field">
-              <label for="f-email">Email</label>
+              <label for="f-email">Your email</label>
               <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email" required />
             </div>
             <div class="field">
-              <label for="f-waste">What's your biggest time-waster?</label>
+              <label for="f-waste">What's your biggest weekly time-waster?</label>
               <textarea id="f-waste" name="timewaster" rows="4"
                 placeholder="The thing you do every day that you wish would just… disappear."></textarea>
             </div>
-            <button type="submit" class="form-btn"><span>Apply</span></button>
-            <p class="form-fine">Not everyone is a fit. But you might be.</p>
+            <button type="submit" class="form-btn"><span>Apply for a Spot</span></button>
+            <p class="form-fine">First six applicants get the early-bird rate.<br>I read every application and come back to you personally.<br>I'll tell you honestly if I think this is the right fit for you.</p>
           </form>
         </div>
       </div>
