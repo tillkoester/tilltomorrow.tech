@@ -1101,6 +1101,90 @@
     @media (max-width: 768px) {
       .leave-grid { grid-template-columns: 1fr; }
     }
+
+    /* ══════════════════════════════════════════════════════════
+       PROOF — CENTERED LAYOUT
+    ══════════════════════════════════════════════════════════ */
+    .proof-layout { max-width: 640px; }
+
+    .proof-context {
+      font-family: var(--f-display);
+      font-size: var(--t-md);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-3);
+      margin-bottom: 32px;
+    }
+
+    .proof-paras p {
+      font-size: var(--t-base);
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .proof-big {
+      font-family: var(--f-display);
+      font-weight: 300;
+      font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      color: var(--ink-1);
+      margin: 52px 0;
+      text-wrap: balance;
+    }
+
+    .proof-tail {
+      font-size: var(--t-base);
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SESSIONS LIST — LARGE NUMBER FORMAT
+    ══════════════════════════════════════════════════════════ */
+    .sessions-list { max-width: 680px; }
+
+    .session-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 0 36px;
+      padding: 44px 0;
+      border-bottom: 1px solid rgba(122,114,134,.12);
+      align-items: start;
+    }
+    .session-item:last-child { border-bottom: none; }
+
+    .session-display-num {
+      font-family: var(--f-display);
+      font-weight: 300;
+      font-size: 5rem;
+      line-height: .9;
+      letter-spacing: -0.04em;
+      color: var(--ink-1);
+      opacity: .12;
+      user-select: none;
+    }
+
+    .session-content h3 {
+      font-family: var(--f-display);
+      font-weight: 500;
+      font-size: var(--t-lg);
+      color: var(--ink-1);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .session-content p {
+      font-size: var(--t-sm);
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 600px) {
+      .session-item { grid-template-columns: 1fr; gap: 8px; }
+      .session-display-num { font-size: 3rem; }
+    }
   </style>
 </head>
 <body>
@@ -1187,8 +1271,7 @@
   <section class="sec" id="problem" aria-labelledby="problem-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">01 / The Problem</span>
-        <h2 class="sec-head" id="problem-h" style="margin-top:12px">ChatGPT Is Open in a Tab.<br>The Admin Is Still There <span class="rainbow-word">on Friday.</span></h2>
+        <h2 class="sec-head" id="problem-h">ChatGPT Is Open in a Tab.<br>The Admin Is Still There <span class="rainbow-word">on Friday.</span></h2>
       </div>
 
       <div class="problem-grid">
@@ -1245,18 +1328,17 @@
   <!-- 02 / THE PROOF -->
   <section class="sec" id="proof" aria-labelledby="proof-h">
     <div class="wrap">
-      <div class="r">
-        <span class="label-mono">02 / The Proof</span>
-        <h2 class="sec-head" id="proof-h" style="margin-top:12px">
-          A Second Brain.<br><em style="font-style:italic;font-weight:300">That Runs Without You.</em>
-        </h2>
-      </div>
-      <div class="proof-body r" style="transition-delay:60ms">
-        <p>I paste something into my inbox — a contact I met, an idea, a link. It gets filed in the right place with the right context. Automatically.</p>
-        <p>My calendar gets built around my actual projects. I don't decide when to work on what — my agent knows my priorities and handles it. I just do the work.</p>
-        <p>Nothing falls through the cracks. Not because I'm disciplined. Because the system is.</p>
-        <p>That's what your agent will do for you. Starting with your biggest time-drain — and building from there.</p>
-        <p class="proof-note">(Batch 1 participant results — coming after July 2026)</p>
+      <div class="proof-layout">
+        <p class="proof-context r" id="proof-h">A Second Brain. That Runs Without You.</p>
+        <div class="proof-paras r" style="transition-delay:40ms">
+          <p>I paste something into my inbox — a contact I met, an idea, a link. It gets filed in the right place with the right context. Automatically.</p>
+          <p>My calendar gets built around my actual projects. I don't decide when to work on what — my agent knows my priorities and handles it. I just do the work.</p>
+        </div>
+        <blockquote class="proof-big r" style="transition-delay:100ms">
+          Nothing falls through the cracks.<br>Not because I'm disciplined.<br>Because the system is.
+        </blockquote>
+        <p class="proof-tail r" style="transition-delay:160ms">That's what your agent will do for you. Starting with your biggest time-drain — and building from there.</p>
+        <p class="proof-note r" style="transition-delay:200ms">(Batch 1 participant results — coming after July 2026)</p>
       </div>
     </div>
   </section>
@@ -1265,8 +1347,7 @@
   <section class="sec" id="leave" aria-labelledby="leave-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">03 / What You Leave With</span>
-        <h2 class="sec-head" id="leave-h" style="margin-top:12px">
+        <h2 class="sec-head" id="leave-h">
           Three Sessions.<br>One Agent Running. <em style="font-style:italic;font-weight:300">Already Working.</em>
         </h2>
         <p class="leave-subtitle r" style="transition-delay:40ms">Not a course. No certificate. You leave with something running.</p>
@@ -1320,8 +1401,7 @@
   <section class="sec" id="why" aria-labelledby="why-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">04 / Why This Works</span>
-        <h2 class="sec-head" id="why-h" style="margin-top:12px">
+        <h2 class="sec-head" id="why-h">
           The Tool Is Free.<br><em style="font-style:italic;font-weight:300">The Learning Curve Is Not.</em>
         </h2>
       </div>
@@ -1339,27 +1419,32 @@
   <!-- 05 / FORMAT -->
   <section class="sec" id="format" aria-labelledby="format-h">
     <div class="wrap">
-      <div class="r" style="text-align:center">
-        <span class="label-mono">05 / Format</span>
-        <h2 class="sec-head" id="format-h" style="margin-top:12px">
+      <div class="r">
+        <h2 class="sec-head" id="format-h">
           Something Running<br><em style="font-style:italic;font-weight:300">by Session One.</em>
         </h2>
       </div>
-      <div class="walkaway-grid" style="margin-top:48px">
-        <div class="glass-card r" style="transition-delay:60ms">
-          <p class="session-num">Session 1</p>
-          <h3 class="card-title">Your agent, live</h3>
-          <p class="card-body">We build and deploy together. By the end of this session, your agent is running and handling its first task.</p>
+      <div class="sessions-list r" style="margin-top:56px;transition-delay:40ms">
+        <div class="session-item r" style="transition-delay:60ms">
+          <span class="session-display-num" aria-hidden="true">1</span>
+          <div class="session-content">
+            <h3>Your agent, live</h3>
+            <p>We build and deploy together. By the end of this session, your agent is running and handling its first task.</p>
+          </div>
         </div>
-        <div class="glass-card r" style="transition-delay:120ms">
-          <p class="session-num">Session 2</p>
-          <h3 class="card-title">The next layer</h3>
-          <p class="card-body">Your second biggest time-drain, automated. We pick what moves the needle most and build it together.</p>
+        <div class="session-item r" style="transition-delay:120ms">
+          <span class="session-display-num" aria-hidden="true">2</span>
+          <div class="session-content">
+            <h3>The next layer</h3>
+            <p>Your second biggest time-drain, automated. We pick what moves the needle most and build it together.</p>
+          </div>
         </div>
-        <div class="glass-card r" style="transition-delay:180ms">
-          <p class="session-num">Session 3</p>
-          <h3 class="card-title">The compound</h3>
-          <p class="card-body">We connect the pieces and make sure you have everything you need to keep building on your own.</p>
+        <div class="session-item r" style="transition-delay:180ms">
+          <span class="session-display-num" aria-hidden="true">3</span>
+          <div class="session-content">
+            <h3>The compound</h3>
+            <p>We connect the pieces and make sure you have everything you need to keep building on your own.</p>
+          </div>
         </div>
       </div>
       <p class="format-meta r" style="transition-delay:240ms">Online · ~3 hours per session · Small cohort · First batch July 2026</p>
@@ -1402,7 +1487,6 @@
   <section class="sec" id="about" aria-labelledby="about-h">
     <div class="wrap">
       <div class="r">
-        <span class="label-mono">07 / About Me</span>
       </div>
       <div class="till-grid" style="margin-top:40px">
 
